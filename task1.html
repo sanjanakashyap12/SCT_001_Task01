@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TasteHub Restaurant</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Rubik", sans-serif;
+      background: url("https://media.istockphoto.com/id/1414076253/vector/fast-food-pattern-background-for-graphic-design-a-size-horizontal.jpg?s=612x612&w=0&k=20&c=85BKF26itwFoST6iVrjqgS94tU4iVxyjGwhxt2raXkk=") no-repeat center center fixed;
+      background-size: cover;
+      scroll-behavior: smooth;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 225, 250, 0.85);
+      z-index: -1;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(221, 22, 55, 0.7);
+      backdrop-filter: blur(8px);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1000;
+    }
+
+    nav.scrolled {
+      background: #27a6d8;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #9db0d4;
+      font-size: 18px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .nav-links a:hover {
+      background: #80d7ff;
+      color: #e65100;
+    }
+
+    .nav-links a.active {
+      background: #fff;
+      color: #e60058;
+      font-weight: bold;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: #69d3af;
+        border-radius: 8px;
+        padding: 10px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    section {
+      padding: 100px 20px;
+      text-align: center;
+      min-height: 100vh;
+      margin: 20px;
+      border-radius: 12px;
+      background: rgba(243, 186, 255, 0.6);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #e64100;
+      font-weight: bold;
+      letter-spacing: 1px;
+
+    }
+
+    section p {
+      font-family: 'Rubik', sans-serif;
+      font-size: 20px;
+      color: #5a3d2e;
+      font-weight: bold;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+      letter-spacing: 0.3px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="logo">🍽️ TasteHub</div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section id="home">
+  <img src="data:image/webp;base64,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" alt="TasteHub Welcome" class="home-img">
+  <h2>WELCOME TO TASTEHUB</h2>
+  <p>Your favorite spot for delicious meals, cozy ambiance, and unforgettable dining experiences.</p>
+  <p>We combine fresh ingredients, passionate chefs, and a friendly environment to make every visit memorable. Whether you’re here for a quick bite or a family dinner, TasteHub is the place to be.</p>
+</section>
+
+
+  <section id="about">
+    <h2>ABOUT US</h2>
+    <p>Founded in 2010, TasteHub has been serving food lovers with authentic flavors from around the world. Our philosophy is simple: good food brings people together.</p>
+    <p>We focus on quality, hygiene, and customer satisfaction. From our cozy interiors to our carefully curated menu, every detail is designed to make you feel at home.</p>
+  </section>
+
+  <section id="menu">
+    <h2>OUR MENU</h2>
+    <p>We offer a variety of dishes across cuisines: Italian, Continental, Indian, and Asian. Every dish is prepared with care and love.</p>
+    <p>✨ Signature Dishes:<br>
+      - Wood-fired Pizzas<br>
+      - Classic Cheeseburgers<br>
+      - Fresh Garden Salads<br>
+      - Chocolate Lava Cake<br>
+      - Special Brewed Coffee</p>
+  </section>
+
+  <section id="gallery">
+    <h2>GALLERY</h2>
+    <div class="gallery">
+      <img src="https://media.istockphoto.com/id/2223640890/photo/board-with-delicious-vegetarian-pizza-isolated-on-white.jpg?s=612x612&w=0&k=20&c=fFgya-e4G3OMPSkPNo-Q8ocGZmdxp3qCTpFZ6QgsGyE=" alt="Pizza">
+      <img src="https://media.istockphoto.com/id/500920935/photo/hamburger-with-cutlet-breaded.jpg?s=612x612&w=0&k=20&c=HGkZAzHvFXZnhsu_qy9oUVMQGq-IokL2CFdMENzMjJ4=" alt="Burger">
+      <img src="https://media.istockphoto.com/id/807218760/photo/pasta-fettuccine-bolognese-with-tomato-sauce-in-white-bowl-flat-lay-top-view.jpg?s=612x612&w=0&k=20&c=20s48AuluEItaV91P1BxidiITJMIiYDSNzpEMAeZ-sk=" alt="Pasta">
+      <img src="https://media.istockphoto.com/id/683296492/photo/roasted-sweet-potatoes-wedges-with-guacamole-and-kidney-beans.jpg?s=612x612&w=0&k=20&c=L_M4nz5UhyurX9SXkknmAORbmLnp-dG6AoMuN-mbik8=" alt="Salad">
+      <img src="https://media.istockphoto.com/id/2189254367/photo/breakfast-with-classic-baked-cheesecake-with-a-strawberry-topping-sauce-homemade-dessert-on-a.jpg?s=612x612&w=0&k=20&c=rxHaKS6OgdWapHZHS4T7ClJRgOawCfe3By36Q-HOElM=" alt="Dessert">
+      <img src="https://media.istockphoto.com/id/1174632434/photo/side-view-of-hot-latte-coffee-with-latte-art-in-a-vintage-matt-black-cup-and-saucer-isolated.jpg?s=612x612&w=0&k=20&c=6KKiEi9aMkZ6nZ892Skv5sgMP3SyheNOwJxoTahsUUU=" alt="Coffee">
+      <img src="https://media.istockphoto.com/id/873316094/photo/prepared-french-fries.jpg?s=612x612&w=0&k=20&c=BpkL2g7UK_dihkHq6wq9nzTQ5OzpN99bAshcJ5vkzuw=" alt="Fries">    
+      <img src="https://media.istockphoto.com/id/1253521039/photo/refreshing-grapefruit-cocktail-with-ice-and-rosemary.jpg?s=612x612&w=0&k=20&c=Q8wVuNVnl7sU0cv6QQGUYA_Hr0YX6d_uaDDEyH6e0Hg=" alt="Juice">    
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>CONTACT US</h2>
+    <p>📍 Address: 123 Food Street, Flavor Town</p>
+    <p>📞 Phone: +91 98765 43210</p>
+    <p>📧 Email: contact@tastehub.com</p>
+    <p>🕒 Timings: Mon-Sun (10 AM - 11 PM)</p>
+  </section>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const links = document.querySelectorAll('.nav-links a');
+    const navLinks = document.getElementById('nav-links');
+    const hamburger = document.getElementById('hamburger');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+
+      let fromTop = window.scrollY + 60;
+      links.forEach(link => {
+        let section = document.querySelector(link.getAttribute('href'));
+        if (
+          section.offsetTop <= fromTop &&
+          section.offsetTop + section.offsetHeight > fromTop
+        ) {
+          links.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    });
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
